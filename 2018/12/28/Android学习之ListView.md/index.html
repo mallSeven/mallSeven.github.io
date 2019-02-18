@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Android学习之ListView | 会骑牛的小七</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="一如开发深似海 从此萌妹成路人">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Android学习之ListView | 会骑牛的小七">
+    <meta name="twitter:description" content="一如开发深似海 从此萌妹成路人">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Android学习之ListView | 会骑牛的小七">
+    <meta property="og:description" content="一如开发深似海 从此萌妹成路人">
+
+    
+    <meta name="author" content="Wang Sir">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+
+    <link rel="canonical" href="http://yoursite.com/2018/12/28/Android学习之ListView.md/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 会骑牛的小七 的主页"><img src="/images/avatar.png" width="80" alt="会骑牛的小七 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 会骑牛的小七">会骑牛的小七</a></h1>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">一如开发深似海 从此萌妹成路人</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/jade.html">颜如玉</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/about.html">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/5734638106/profile?topnav=1&amp;wvr=6" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/mallSeven" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  <li class="navigation__item">
+    <a href="https://www.facebook.com/profile.php?id=100027223340541" title="Facebook" target="_blank">
+      <i class="social fa fa-facebook"></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+
+  
+<!-- Twitter -->
+
+  
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-12-28T02:37:00.030Z" class="post-list__meta--date date">2018-12-28</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Android学习之ListView</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本职：iOS开发<br>学习中：Android开发<br>书籍：《第一行代码》、《Java核心技术 卷I》</p>
+<p><n><br>通过几天的学习和了解：Android studio和Xcode、Java和OC或是Swift，不得不说在开发工具还是苹果的用着舒服点，语法上各有千秋，因为本职是做iOS开发工作的，业余时间来学习Android，附带复习一下Java的基础语法，在此做个笔记，记录一下学习的知识点。</n></p>
+<h2 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h2><p>Android的基础控件比较简单，但是在实际的项目开发中最常用的还是表格，Android中称之为ListView，iOS中描述为UITableView.</p>
+<h3>1、ListView的简单使用</h3>
+
+<p>使用场景：记录用户的名字，性别，年龄。<br><br></p>
+<ul>
+<li>创建一个活动（activity）</li>
+<li>在生成的xml布局文件中添加ListView</li>
+<li>在活动中通过id获取到ListView的实例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ListView listView = findViewById(R.id.listView);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建一个实体类 作为ListView适配器的适配类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class User &#123;</span><br><span class="line"></span><br><span class="line">String userName;</span><br><span class="line">String userGender;</span><br><span class="line">int userAge;</span><br><span class="line"></span><br><span class="line">public  User(String name, String gender, int age) &#123;</span><br><span class="line">    this.userName = name;</span><br><span class="line">    this.userGender = gender;</span><br><span class="line">    this.userAge = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public String getUserGender() &#123;</span><br><span class="line">    return userGender;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public String getUserName() &#123;</span><br><span class="line">    return userName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public int getUserAge() &#123;</span><br><span class="line">    return userAge;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>为ListView的item自定义一个布局，创建三个TextView，采用的是线性布局LinearLayout方式。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">android:orientation=&quot;vertical&quot;</span><br><span class="line">android:layout_width=&quot;match_parent&quot;</span><br><span class="line">android:layout_height=&quot;match_parent&quot; &gt;</span><br><span class="line"></span><br><span class="line">&lt;TextView</span><br><span class="line">android:id=&quot;@+id/textView&quot;</span><br><span class="line">android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">android:layout_marginLeft=&quot;20dp&quot;</span><br><span class="line">android:layout_marginTop=&quot;20dp&quot;</span><br><span class="line">android:text=&quot;姓名&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;TextView</span><br><span class="line">android:id=&quot;@+id/textView2&quot;</span><br><span class="line">android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">android:layout_marginLeft=&quot;20dp&quot;</span><br><span class="line">android:layout_marginTop=&quot;20dp&quot;</span><br><span class="line">android:text=&quot;性别&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;TextView</span><br><span class="line">android:id=&quot;@+id/textView3&quot;</span><br><span class="line">android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">android:layout_marginLeft=&quot;20dp&quot;</span><br><span class="line">android:layout_marginTop=&quot;20dp&quot;</span><br><span class="line">android:layout_marginBottom=&quot;20dp&quot;</span><br><span class="line">android:text=&quot;年龄&quot;/&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建一个适配器，继承于ArrayAdapter，并制定它的泛型为 User类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class UserAdapter extends ArrayAdapter&lt;User&gt; &#123;</span><br><span class="line"></span><br><span class="line">private int resourceId;</span><br><span class="line"></span><br><span class="line">public UserAdapter(Context context, int textViewResourceId) &#123;</span><br><span class="line">    super(context, textViewResourceId);</span><br><span class="line">    resourceId = textViewResourceId;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public View getView(int position, View convertView, ViewGroup parent) &#123;</span><br><span class="line">    User user = getItem(position); //获取当前User的实例</span><br><span class="line">    View view = LayoutInflater.from(getContext()).inflate(this.resourceId, null); //类似于tableView的UITableCell</span><br><span class="line">    TextView nameTextView = view.findViewById(R.id.textView);</span><br><span class="line">    TextView genderTextView = view.findViewById(R.id.textView2);</span><br><span class="line">    TextView ageTextView = view.findViewById(R.id.textView3);</span><br><span class="line">    nameTextView.setText(&quot;姓名：&quot; + user.getUserName());</span><br><span class="line">    genderTextView.setText(&quot;性别：&quot; + user.getUserGender());</span><br><span class="line">    ageTextView.setText(String.valueOf(&quot;年龄&quot; + user.getUserAge()));</span><br><span class="line">    return view;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建模拟数据</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; userList = new ArrayList&lt;User&gt;();</span><br><span class="line"></span><br><span class="line">private void loadData() &#123;</span><br><span class="line"></span><br><span class="line">    User user = new  User(&quot;张三&quot;, &quot;男&quot;, 10);</span><br><span class="line">    userList.add(user);</span><br><span class="line"></span><br><span class="line">    User user1 = new  User(&quot;李思思&quot;, &quot;女&quot;, 17);</span><br><span class="line">    userList.add(user1);</span><br><span class="line"></span><br><span class="line">    User user2 = new  User(&quot;王阿龙&quot;, &quot;男&quot;, 14);</span><br><span class="line">    userList.add(user2);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建 UserAdapter 实例，加载到ListView</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.user_item);</span><br><span class="line">adapter.addAll(userList);</span><br><span class="line"></span><br><span class="line">listView.setAdapter(adapter);</span><br></pre></td></tr></table></figure>
+<p>效果图<br><br><br><img src="/images/UserList.png" alt=""></p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/12/28/firstBlog/" title="我的第一篇博客(个人博客)">我的第一篇博客(个人博客)</a></h2>
+                <p class="excerpt">
+                
+                Welcome to My blog! 搭建这个博客的目的，对于我来说 。。。。。。。就是想整理自己平时遇到的一些技术难点或者是学习中的一点分享。平时的零散时间很多，不能有效的去利用即是最大的浪费！之前也在CSDN上写过 博客，有兴趣的童鞋可以去看看，写的不好，请多多包涵 🤗🤗🤗 。
+
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-12-28T02:37:00.030Z" class="post-list__meta--date date">2018-12-28</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/28/firstBlog/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 Wang Sir - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+            
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
